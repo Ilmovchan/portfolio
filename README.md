@@ -83,25 +83,20 @@ Nothing breaks when a file is missing — frames and the monitor fall back to th
 
 ## Filling a vertical slot
 
-Four empty 9:16 slots sit under the sequence (`.reels__grid` in `index.html`). A slot stays
-inert until it has media — clicking an empty one does nothing. To fill one, add to its
-`<button class="reel">`:
+Four 9:16 tiles sit under the sequence (`.reels__grid` in `index.html`). **Each tile is its own
+player** — pressing play swaps the poster for a YouTube iframe inside that same tile, so nothing
+jumps and nothing scrolls. Starting one tile pauses the others and the big monitor.
 
-```html
-data-yt="VIDEO_ID"                     (or data-video="assets/work/reel-01.mp4")
-data-poster="https://i.ytimg.com/vi/VIDEO_ID/maxresdefault.jpg"
-data-sec="38"                          duration in seconds
-data-title="Name of the piece"
-data-kind="Vertical"  data-role="Edit"  data-year="2025"
-```
+A tile is an `<article class="reel">` with `data-yt="VIDEO_ID"` (or `data-video="assets/…mp4"`)
+and `data-sec` for the duration. Inside it: the poster `<img>`, an empty `<span id="reelMountNN">`
+where the player appears, the `.reel__hit` play button holding the index and duration badges, and
+`.reel__meta` with the title, the type and a small third line (original title, or a note like
+"Client work — brand undisclosed"). A tile with no `data-yt`/`data-video` stays inert.
 
-Then update the three visible bits inside it: the `reel__len` badge, and the `<b>` and `<em>`
-in `reel__meta`. `data-ar="9/16"` is already set — leave it.
-
-A YouTube Short works as a normal video id: `https://youtube.com/shorts/ABC123` → `ABC123`.
-Shorts posters are often only `hqdefault.jpg`, so check `maxresdefault.jpg` loads before using it.
-
-Clicking a filled slot loads it in the program monitor above and the frame turns vertical.
+**Posters for Shorts:** `maxresdefault.jpg` is always 16:9, so a vertical frame would crop it to a
+strip. Use `https://i.ytimg.com/vi/VIDEO_ID/oardefault.jpg` — 1080×1920, the real vertical frame.
+If that 404s (YouTube has not generated every size yet), `frame0.jpg` works but is only 268×480;
+uploading a custom thumbnail to that video makes the big sizes appear.
 
 ## Adding a clip
 

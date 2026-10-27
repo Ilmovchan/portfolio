@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=26">
+<link rel="stylesheet" href="css/style.css?v=43">
 </head>
 <body>
 
@@ -60,32 +60,32 @@
         <span>Illia</span>
         <span>Movchan</span>
       </h1>
-      <p class="hero__claim">I cut commercials, music videos and documentary.
+      <p class="hero__claim">Commercials, YouTube in any format, documentary, verticals of every kind.
         Raw footage in, finished master out.</p>
     </div>
 
     <dl class="panel">
-      <div><dt>Status</dt><dd class="ok">Free from Jan 2026</dd></div>
+      <div><dt>Status</dt><dd class="ok">Free from October 2026</dd></div>
       <div><dt>Base</dt><dd>Odesa, UA — remote</dd></div>
-      <div><dt>Runtime</dt><dd>7 years · 180+ cuts</dd></div>
+      <div><dt>Runtime</dt><dd>5 years · 200+ cuts</dd></div>
       <div class="panel__cut"><dt>Edit</dt><dd>Premiere Pro · DaVinci Resolve</dd></div>
       <div><dt>Motion</dt><dd>After Effects</dd></div>
       <div><dt>Color</dt><dd>Log &amp; RAW grading, camera matching</dd></div>
-      <div><dt>Sound</dt><dd>Dialogue cleanup, music edit, loudness</dd></div>
+      <div><dt>Sound</dt><dd>Full pass — design and SFX, cleanup, etc</dd></div>
       <div><dt>Delivery</dt><dd>16:9 · 9:16 · 4:5 · 1:1 — ProRes, H.264/265, DNxHR</dd></div>
     </dl>
   </div>
 
   <div class="strip" id="strip">
-    <button class="strip__frame" data-f="1"><img src="https://i.ytimg.com/vi/kV2X80Zz8LY/maxresdefault.jpg" alt=""><i>01</i></button>
+    <button class="strip__frame" data-f="1"><img src="https://i.ytimg.com/vi/kV2X80Zz8LY/maxresdefault.jpg?v=2" alt=""><i>01</i></button>
     <button class="strip__frame" data-f="2"><img src="https://i.ytimg.com/vi/qlNAm4sDkXM/maxresdefault.jpg" alt=""><i>02</i></button>
     <button class="strip__frame" data-f="3"><img src="https://i.ytimg.com/vi/QOdl4KEcaCY/maxresdefault.jpg" alt=""><i>03</i></button>
     <button class="strip__frame" data-f="4"><img src="https://i.ytimg.com/vi/GR7p4X7CXzE/maxresdefault.jpg" alt=""><i>04</i></button>
-    <button class="strip__frame" data-f="5"><img src="assets/work/05.jpg" alt=""><i>05</i></button>
-    <button class="strip__frame strip__reel" data-play="reel">
+    <!-- TODO: paste the Google Drive folder link into href -->
+    <a class="strip__frame strip__reel" href="#" target="_blank" rel="noopener">
       <span class="tri"></span>
-      <b>SHOWREEL</b><em>01:48</em>
-    </button>
+      <b>ALL WORKS</b><em>Google Drive &#8599;</em>
+    </a>
   </div>
 
   <div class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
@@ -95,7 +95,7 @@
 <section class="work" id="work">
   <div class="sechead">
     <h2>Work</h2>
-    <p>Pick a clip from the sequence. It loads in the monitor — press play for sound.</p>
+    <p>Long-form work, laid out as a sequence — each block is as wide as the piece is long.</p>
   </div>
 
   <div class="suite">
@@ -121,7 +121,6 @@
         <div><dt>Year</dt><dd id="inspYear">2025</dd></div>
         <div><dt>Runtime</dt><dd id="inspLen">13:34</dd></div>
         <div><dt>Frame</dt><dd id="inspAr">16:9</dd></div>
-        <div id="inspNoteRow" hidden><dt>Original</dt><dd id="inspNote"></dd></div>
       </dl>
       <a class="insp__link" id="inspLink" href="https://youtu.be/kV2X80Zz8LY" target="_blank" rel="noopener">Open on YouTube ↗</a>
     </aside>
@@ -132,7 +131,7 @@
 
       <div class="tl__track" id="track">
         <button class="clip is-on" data-yt="kV2X80Zz8LY"
-                data-poster="https://i.ytimg.com/vi/kV2X80Zz8LY/maxresdefault.jpg"
+                data-poster="https://i.ytimg.com/vi/kV2X80Zz8LY/maxresdefault.jpg?v=2"
                 data-sec="814" data-title="When Music Went to War" data-kind="Documentary"
                 data-role="Edit" data-year="2025">
           <span class="clip__n">When Music Went to War</span><span class="clip__d">13:34</span>
@@ -146,87 +145,88 @@
         <button class="clip" data-yt="QOdl4KEcaCY"
                 data-poster="https://i.ytimg.com/vi/QOdl4KEcaCY/maxresdefault.jpg"
                 data-sec="2661" data-title="Teneta Defence" data-kind="Interview"
-                data-role="Edit" data-year="2025"
-                data-note="СІТКОМЕТ MITLA проти ворожих дронів: інтерв’ю з засновником Teneta Defence">
+                data-role="Edit" data-year="2025">
           <span class="clip__n">Teneta Defence</span><span class="clip__d">44:21</span>
         </button>
         <button class="clip" data-yt="GR7p4X7CXzE"
                 data-poster="https://i.ytimg.com/vi/GR7p4X7CXzE/maxresdefault.jpg"
                 data-sec="3580" data-title="War and Grandchildren" data-kind="Podcast"
-                data-role="Edit" data-year="2025"
-                data-note="Війна і онуки. Діалоги за межею емпатії">
+                data-role="Edit" data-year="2025">
           <span class="clip__n">War and Grandchildren</span><span class="clip__d">59:40</span>
-        </button>
-        <button class="clip" data-video="assets/work/05.mp4" data-poster="assets/work/05.jpg"
-                data-sec="65" data-title="Form / Function" data-kind="Product launch" data-role="Edit · Color" data-year="2024">
-          <span class="clip__n">Form / Function</span><span class="clip__d">1:05</span>
-        </button>
-        <button class="clip" data-video="assets/work/06.mp4" data-poster="assets/work/06.jpg"
-                data-sec="45" data-title="Meridian" data-kind="Social set" data-role="Edit · Subtitles" data-year="2023">
-          <span class="clip__n">Meridian</span><span class="clip__d">0:45</span>
         </button>
       </div>
 
-      <p class="tl__foot"><span>6 clips</span><span>Total runtime 2:05:57</span><span>Full list on request</span></p>
+      <p class="tl__foot"><span>4 clips</span><span>Total runtime 2:04:07</span><span>Full list on request</span></p>
     </div>
   </div>
 
   <div class="reels">
     <div class="reels__head">
       <h3>Vertical</h3>
-      <p>9:16 cuts for Reels, Shorts and Stories. They load in the same monitor.</p>
+      <p>9:16 cuts for Reels, Shorts and Stories.</p>
     </div>
 
     <div class="reels__grid" id="reels">
 
-      <button class="reel" data-ar="9/16" data-sec="33" data-yt="2nUpffePN54"
-              data-poster="https://i.ytimg.com/vi/2nUpffePN54/oardefault.jpg"
-              data-title="FAB vs KAB" data-kind="Explainer" data-role="Edit" data-year="2025"
-              data-note="Відмінності ФАБ та КАБ">
-        <span class="reel__frame">
-          <img src="https://i.ytimg.com/vi/2nUpffePN54/oardefault.jpg" alt="">
-          <i class="reel__i">01</i>
-          <i class="reel__len">0:33</i>
-        </span>
-        <span class="reel__meta"><b>FAB vs KAB</b><em>Explainer</em></span>
-      </button>
-
-      <button class="reel" data-ar="9/16" data-sec="83" data-yt="B0pPF1VHlyI"
-              data-poster="https://i.ytimg.com/vi/B0pPF1VHlyI/oardefault.jpg"
-              data-title="Western Components" data-kind="Explainer" data-role="Edit" data-year="2025"
-              data-note="Західні компоненти російских ракет">
-        <span class="reel__frame">
+      <article class="reel" data-yt="B0pPF1VHlyI" data-sec="83">
+        <div class="reel__frame">
           <img src="https://i.ytimg.com/vi/B0pPF1VHlyI/oardefault.jpg" alt="">
-          <i class="reel__i">02</i>
-          <i class="reel__len">1:23</i>
-        </span>
-        <span class="reel__meta"><b>Western Components</b><em>Explainer</em></span>
-      </button>
+          <span id="reelMount01"></span>
+          <button class="reel__hit" aria-label="Play Western Components">
+            <i class="reel__i">01</i>
+            <i class="reel__len">1:23</i>
+          </button>
+        </div>
+        <div class="reel__meta">
+          <b>Western Components</b>
+          <em>Explainer</em>
+        </div>
+      </article>
 
-      <button class="reel" data-ar="9/16" data-sec="32" data-yt="Nl9c1oydGfY"
-              data-poster="https://i.ytimg.com/vi/Nl9c1oydGfY/oardefault.jpg"
-              data-title="Asking for Help" data-kind="Social" data-role="Edit" data-year="2025"
-              data-note="Просити про допомогу">
-        <span class="reel__frame">
+      <article class="reel" data-yt="d8SE37Z6Bx4" data-sec="69">
+        <div class="reel__frame">
+          <img src="https://i.ytimg.com/vi/d8SE37Z6Bx4/oardefault.jpg" alt="">
+          <span id="reelMount02"></span>
+          <button class="reel__hit" aria-label="Play Codebreaker">
+            <i class="reel__i">02</i>
+            <i class="reel__len">1:09</i>
+          </button>
+        </div>
+        <div class="reel__meta">
+          <b>Codebreaker</b>
+          <em>Explainer</em>
+        </div>
+      </article>
+
+      <article class="reel" data-yt="Nl9c1oydGfY" data-sec="32">
+        <div class="reel__frame">
           <img src="https://i.ytimg.com/vi/Nl9c1oydGfY/oardefault.jpg" alt="">
-          <i class="reel__i">03</i>
-          <i class="reel__len">0:32</i>
-        </span>
-        <span class="reel__meta"><b>Asking for Help</b><em>Social</em></span>
-      </button>
+          <span id="reelMount03"></span>
+          <button class="reel__hit" aria-label="Play Asking for Help">
+            <i class="reel__i">03</i>
+            <i class="reel__len">0:32</i>
+          </button>
+        </div>
+        <div class="reel__meta">
+          <b>Asking for Help</b>
+          <em>Social</em>
+        </div>
+      </article>
 
-      <button class="reel" data-ar="9/16" data-sec="93" data-yt="wOy5EzID1no"
-              data-poster="https://i.ytimg.com/vi/wOy5EzID1no/frame0.jpg"
-              data-title="3D Ecom Spot" data-kind="AI ad"
-              data-role="Generation · VO · Edit · Sound" data-year="2025"
-              data-client="E-commerce brand — undisclosed">
-        <span class="reel__frame">
+      <article class="reel" data-yt="wOy5EzID1no" data-sec="93">
+        <div class="reel__frame">
           <img src="https://i.ytimg.com/vi/wOy5EzID1no/frame0.jpg" alt="">
-          <i class="reel__i">04</i>
-          <i class="reel__len">1:33</i>
-        </span>
-        <span class="reel__meta"><b>3D Ecom Spot</b><em>AI ad</em></span>
-      </button>
+          <span id="reelMount04"></span>
+          <button class="reel__hit" aria-label="Play 3D Ecom Spot">
+            <i class="reel__i">04</i>
+            <i class="reel__len">1:33</i>
+          </button>
+        </div>
+        <div class="reel__meta">
+          <b>3D Ecom Spot</b>
+          <em>AI ad · Client work</em>
+        </div>
+      </article>
 
     </div>
   </div>
@@ -240,27 +240,29 @@
   </div>
 
   <div class="about__grid">
+    <!-- portrait is out for now — restore this block and .about__grid{grid-template-columns:.62fr 1fr} in the CSS
     <div class="shot">
       <img src="assets/portrait.jpg" alt="Portrait">
       <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
       <span class="shot__ph">assets/portrait.jpg</span>
     </div>
+    -->
 
     <div class="about__body">
-      <p class="about__lead">Seven years in post. I work on the part that decides<br>
+      <p class="about__lead">Five years in post. I work on the part that decides<br>
         whether anyone watches to the end.</p>
       <p>Structure, pacing and the last ten percent of finish. Started in a small production house
         doing everything from the shoot to the export, which is why I know what a cut costs on set.
-        Freelance since 2021, mostly with agencies and production teams across Europe.</p>
-      <p>Fixed scope, agreed before anything starts: a first cut, then two rounds of revisions,
+        Freelance now, mostly with agencies and production teams across Europe.</p>
+      <p>Fixed scope, agreed before anything starts: a first cut, then revisions until it lands,
         then masters. The terms are in the table below.</p>
     </div>
 
     <dl class="spec">
       <div><dt>Scope</dt><dd>Agreed before work starts — no surprise invoices</dd></div>
-      <div><dt>Quote</dt><dd>Within 1 working day of the brief</dd></div>
-      <div><dt>Revisions</dt><dd>Two rounds included</dd></div>
-      <div><dt>Review</dt><dd>Frame.io links with timecode comments</dd></div>
+      <div><dt>Price</dt><dd>A fixed number, sent within 1 working day of your brief</dd></div>
+      <div><dt>Revisions</dt><dd>Until the cut lands — no round limit</dd></div>
+      <div><dt>Review</dt><dd>Frame.io with timecode comments, or whatever you already use</dd></div>
       <div><dt>Turnaround</dt><dd>Short-form in 48 hours</dd></div>
       <div><dt>Rate</dt><dd>Day rate or fixed project price</dd></div>
       <div><dt>Languages</dt><dd>English · Ukrainian</dd></div>
@@ -302,6 +304,6 @@
   </div>
 </div>
 
-<script src="js/main.js?v=26"></script>
+<script src="js/main.js?v=43"></script>
 </body>
 </html>

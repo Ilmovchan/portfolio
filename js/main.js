@@ -106,7 +106,6 @@
   const insp = {
     title: $('#inspTitle'), kind: $('#inspKind'), role: $('#inspRole'),
     year: $('#inspYear'), len: $('#inspLen'), ar: $('#inspAr'), link: $('#inspLink'),
-    note: $('#inspNote'), noteRow: $('#inspNoteRow'),
     client: $('#inspClient'), clientRow: $('#inspClientRow')
   };
 
@@ -156,7 +155,7 @@
   };
 
   const load = (clip, autoplay) => {
-    $$('.clip, .reel').forEach(c => c.classList.toggle('is-on', c === clip));
+    clips.forEach(c => c.classList.toggle('is-on', c === clip));
     current = clip;
     const d = clip.dataset;
 
@@ -193,8 +192,6 @@
     insp.year.textContent  = d.year;
     insp.len.textContent   = mmss(+d.sec);
     insp.ar.textContent    = ar.replace('/', ':');
-    insp.note.textContent = d.note || '';
-    insp.noteRow.hidden = !d.note;
     insp.client.textContent = d.client || '';
     insp.clientRow.hidden = !d.client;
 
@@ -217,12 +214,46 @@
   $('#monPlay').addEventListener('click', play);
   load(clips[0], false);
 
-  /* vertical cuts load in the same monitor — the frame turns 9:16 */
-  $$('.reel').forEach(reel => reel.addEventListener('click', () => {
-    if (!reel.dataset.yt && !reel.dataset.video) return;     // slot still empty
-    load(reel, false);
-    $('.suite').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }));
+  /* ── vertical cuts play inside their own tile ─────── */
+  const reelPlayers = new Map();
+  const hushReels = (except) => reelPlayers.forEach((p, el) => {
+    if (el !== except && p.pauseVideo) p.pauseVideo();
+  });
+
+  $$('.reel').forEach(reel => {
+    const hit = $('.reel__hit', reel);
+    if (!hit || (!reel.dataset.yt && !reel.dataset.video)) return;   // empty slot stays inert
+
+    hit.addEventListener('click', async () => {
+      monVideo.pause();                       // never two soundtracks at once
+      if (yt && yt.pauseVideo) yt.pauseVideo();
+      hushReels(reel);
+      reel.classList.add('is-live');
+
+      const made = reelPlayers.get(reel);
+      if (made) { made.playVideo(); return; }
+
+      if (reel.dataset.video) {               // local file
+        const v = document.createElement('video');
+        v.src = reel.dataset.video;
+        v.controls = true; v.autoplay = true; v.playsInline = true;
+        $('.reel__frame', reel).appendChild(v);
+        reelPlayers.set(reel, { pauseVideo: () => v.pause(), playVideo: () => v.play() });
+        return;
+      }
+
+      await loadApi();
+      const player = new YT.Player($('[id^="reelMount"]', reel), {
+        videoId: reel.dataset.yt,
+        playerVars: { rel: 0, modestbranding: 1, playsinline: 1, autoplay: 1 },
+        events: {
+          onReady: e => e.target.playVideo(),
+          onStateChange: e => { if (e.data === YT.PlayerState.PLAYING) hushReels(reel); }
+        }
+      });
+      reelPlayers.set(reel, player);
+    });
+  });
 
   /* hero contact strip → load that clip in the monitor */
   $$('.strip__frame[data-f]').forEach(f => f.addEventListener('click', () => {
@@ -253,7 +284,7 @@
     setTimeout(() => { lbVideo.removeAttribute('src'); lbVideo.load(); }, 250);
     lastFocus?.focus();
   };
-  $('[data-play="reel"]').addEventListener('click',
+  $('[data-play="reel"]')?.addEventListener('click',   // wired again once a showreel exists
     () => openLB('assets/work/reel.mp4', 'Showreel 2025 — 01:48', 'assets/work/reel.jpg'));
   $('#lbClose').addEventListener('click', closeLB);
   lb.addEventListener('click', e => { if (e.target === lb) closeLB(); });
