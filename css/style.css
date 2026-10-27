@@ -256,6 +256,22 @@ body.drawer-open .drawer{transform:none}
   .reel:nth-child(-n+2){border-bottom:1px solid var(--line2)}
 }
 
+/* phones: the tiles become a swipeable row instead of a two-row grid */
+@media (max-width:760px){
+  .reels__grid{
+    display:flex;overflow-x:auto;overscroll-behavior-x:contain;
+    scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .reels__grid::-webkit-scrollbar{display:none}
+  .reel{
+    flex:0 0 74%;scroll-snap-align:center;
+    border-right:1px solid var(--line2);border-bottom:0;
+  }
+  .reel:last-child{flex-basis:80%;border-right:0}   /* last one sits flush */
+  .reel__frame{width:100%}
+}
+
 /* ── 03 about ────────────────────────────────────────── */
 .about{border-bottom:1px solid var(--line)}
 .about__grid{display:grid;grid-template-columns:1fr;border-top:1px solid var(--line)}
