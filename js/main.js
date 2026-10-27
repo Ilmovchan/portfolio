@@ -14,7 +14,12 @@
     const f = Math.floor((sec % 1) * FPS);
     return [h, m, s, f].map(n => String(n).padStart(2, '0')).join(':');
   };
-  const mmss = (sec) => `${Math.floor(sec / 60)}:${String(Math.floor(sec % 60)).padStart(2, '0')}`;
+  const mmss = (sec) => {                      // h:mm:ss once a clip runs past the hour
+    const s = Math.floor(sec), p = n => String(n).padStart(2, '0');
+    return s >= 3600
+      ? `${Math.floor(s / 3600)}:${p(s % 3600 / 60 | 0)}:${p(s % 60)}`
+      : `${Math.floor(s / 60)}:${p(s % 60)}`;
+  };
 
   /* ── missing media degrades to the slate texture ──── */
   $$('img:not(#monStill)').forEach(img => {
@@ -97,7 +102,13 @@
 
   /* ── program monitor ──────────────────────────────── */
   const mon = $('#mon'), monVideo = $('#monVideo'), monBurn = $('#monBurn'),
-        monMeta = $('#monMeta'), monStill = $('#monStill'), monYT = $('#monYT');
+        monStill = $('#monStill'), monYT = $('#monYT'), screen = $('.mon__screen');
+  const insp = {
+    title: $('#inspTitle'), kind: $('#inspKind'), role: $('#inspRole'),
+    year: $('#inspYear'), len: $('#inspLen'), ar: $('#inspAr'), link: $('#inspLink'),
+    note: $('#inspNote'), noteRow: $('#inspNoteRow'),
+    client: $('#inspClient'), clientRow: $('#inspClientRow')
+  };
 
   let current = null, yt = null, ytPoll = 0, ytApi = null;
   const burn = (sec) => { monBurn.textContent = tcString(sec); };
@@ -145,7 +156,7 @@
   };
 
   const load = (clip, autoplay) => {
-    clips.forEach(c => c.classList.toggle('is-on', c === clip));
+    $$('.clip, .reel').forEach(c => c.classList.toggle('is-on', c === clip));
     current = clip;
     const d = clip.dataset;
 
@@ -170,9 +181,29 @@
     }
     burn(0);
 
-    monMeta.innerHTML =
-      `<span class="t">${d.title}</span><span>${d.kind}</span><span>${d.role}</span>` +
-      `<span>${d.year}</span><span class="d">${mmss(+d.sec)}</span>`;
+    // the frame takes the clip's own shape — no empty rails around the picture
+    const ar = d.ar || '16/9';
+    const [aw, ah] = ar.split('/').map(Number);
+    screen.style.setProperty('--ar', aw + '/' + ah);
+    screen.style.setProperty('--arn', (aw / ah).toFixed(4));
+
+    insp.title.textContent = d.title;
+    insp.kind.textContent  = d.kind;
+    insp.role.textContent  = d.role;
+    insp.year.textContent  = d.year;
+    insp.len.textContent   = mmss(+d.sec);
+    insp.ar.textContent    = ar.replace('/', ':');
+    insp.note.textContent = d.note || '';
+    insp.noteRow.hidden = !d.note;
+    insp.client.textContent = d.client || '';
+    insp.clientRow.hidden = !d.client;
+
+    if (d.yt) {
+      insp.link.href = 'https://youtu.be/' + d.yt;
+      insp.link.hidden = false;
+    } else {
+      insp.link.hidden = true;
+    }
     if (autoplay) play();
   };
 
@@ -185,6 +216,13 @@
   clips.forEach(c => c.addEventListener('click', () => load(c, false)));
   $('#monPlay').addEventListener('click', play);
   load(clips[0], false);
+
+  /* vertical cuts load in the same monitor — the frame turns 9:16 */
+  $$('.reel').forEach(reel => reel.addEventListener('click', () => {
+    if (!reel.dataset.yt && !reel.dataset.video) return;     // slot still empty
+    load(reel, false);
+    $('.suite').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }));
 
   /* hero contact strip → load that clip in the monitor */
   $$('.strip__frame[data-f]').forEach(f => f.addEventListener('click', () => {

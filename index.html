@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=17">
+<link rel="stylesheet" href="css/style.css?v=26">
 </head>
 <body>
 
@@ -72,15 +72,15 @@
       <div><dt>Motion</dt><dd>After Effects</dd></div>
       <div><dt>Color</dt><dd>Log &amp; RAW grading, camera matching</dd></div>
       <div><dt>Sound</dt><dd>Dialogue cleanup, music edit, loudness</dd></div>
-      <div><dt>Delivery</dt><dd>16:9 · 9:16 · 1:1 — ProRes, H.264</dd></div>
+      <div><dt>Delivery</dt><dd>16:9 · 9:16 · 4:5 · 1:1 — ProRes, H.264/265, DNxHR</dd></div>
     </dl>
   </div>
 
   <div class="strip" id="strip">
     <button class="strip__frame" data-f="1"><img src="https://i.ytimg.com/vi/kV2X80Zz8LY/maxresdefault.jpg" alt=""><i>01</i></button>
-    <button class="strip__frame" data-f="2"><img src="assets/work/02.jpg" alt=""><i>02</i></button>
-    <button class="strip__frame" data-f="3"><img src="assets/work/03.jpg" alt=""><i>03</i></button>
-    <button class="strip__frame" data-f="4"><img src="assets/work/04.jpg" alt=""><i>04</i></button>
+    <button class="strip__frame" data-f="2"><img src="https://i.ytimg.com/vi/qlNAm4sDkXM/maxresdefault.jpg" alt=""><i>02</i></button>
+    <button class="strip__frame" data-f="3"><img src="https://i.ytimg.com/vi/QOdl4KEcaCY/maxresdefault.jpg" alt=""><i>03</i></button>
+    <button class="strip__frame" data-f="4"><img src="https://i.ytimg.com/vi/GR7p4X7CXzE/maxresdefault.jpg" alt=""><i>04</i></button>
     <button class="strip__frame" data-f="5"><img src="assets/work/05.jpg" alt=""><i>05</i></button>
     <button class="strip__frame strip__reel" data-play="reel">
       <span class="tri"></span>
@@ -109,14 +109,22 @@
         <span class="mon__burn" id="monBurn">00:00:00:00</span>
         <button class="mon__play" id="monPlay" aria-label="Play"><span class="tri"></span></button>
       </div>
-      <figcaption class="mon__meta" id="monMeta">
-        <span class="t">When Music Went to War</span>
-        <span>Documentary</span>
-        <span>Edit</span>
-        <span>2025</span>
-        <span class="d">13:34</span>
-      </figcaption>
     </figure>
+
+    <aside class="insp">
+      <p class="insp__cap">In monitor</p>
+      <h3 class="insp__title" id="inspTitle">When Music Went to War</h3>
+      <dl class="insp__rows">
+        <div><dt>Type</dt><dd id="inspKind">Documentary</dd></div>
+        <div><dt>Role</dt><dd id="inspRole">Edit</dd></div>
+        <div id="inspClientRow" hidden><dt>Client</dt><dd id="inspClient"></dd></div>
+        <div><dt>Year</dt><dd id="inspYear">2025</dd></div>
+        <div><dt>Runtime</dt><dd id="inspLen">13:34</dd></div>
+        <div><dt>Frame</dt><dd id="inspAr">16:9</dd></div>
+        <div id="inspNoteRow" hidden><dt>Original</dt><dd id="inspNote"></dd></div>
+      </dl>
+      <a class="insp__link" id="inspLink" href="https://youtu.be/kV2X80Zz8LY" target="_blank" rel="noopener">Open on YouTube ↗</a>
+    </aside>
 
     <!-- timeline -->
     <div class="tl" id="tl">
@@ -129,17 +137,25 @@
                 data-role="Edit" data-year="2025">
           <span class="clip__n">When Music Went to War</span><span class="clip__d">13:34</span>
         </button>
-        <button class="clip" data-video="assets/work/02.mp4" data-poster="assets/work/02.jpg"
-                data-sec="30" data-title="Nova Sport" data-kind="Campaign" data-role="Edit · Motion" data-year="2025">
-          <span class="clip__n">Nova Sport</span><span class="clip__d">0:30</span>
+        <button class="clip" data-yt="qlNAm4sDkXM"
+                data-poster="https://i.ytimg.com/vi/qlNAm4sDkXM/maxresdefault.jpg"
+                data-sec="392" data-title="Music Under Fire" data-kind="Documentary"
+                data-role="Edit" data-year="2025">
+          <span class="clip__n">Music Under Fire</span><span class="clip__d">6:32</span>
         </button>
-        <button class="clip" data-video="assets/work/03.mp4" data-poster="assets/work/03.jpg"
-                data-sec="202" data-title="Signal" data-kind="Music video" data-role="Edit" data-year="2024">
-          <span class="clip__n">Signal</span><span class="clip__d">3:22</span>
+        <button class="clip" data-yt="QOdl4KEcaCY"
+                data-poster="https://i.ytimg.com/vi/QOdl4KEcaCY/maxresdefault.jpg"
+                data-sec="2661" data-title="Teneta Defence" data-kind="Interview"
+                data-role="Edit" data-year="2025"
+                data-note="СІТКОМЕТ MITLA проти ворожих дронів: інтерв’ю з засновником Teneta Defence">
+          <span class="clip__n">Teneta Defence</span><span class="clip__d">44:21</span>
         </button>
-        <button class="clip" data-video="assets/work/04.mp4" data-poster="assets/work/04.jpg"
-                data-sec="1120" data-title="Night Shift" data-kind="Documentary" data-role="Edit · Sound" data-year="2024">
-          <span class="clip__n">Night Shift</span><span class="clip__d">18:40</span>
+        <button class="clip" data-yt="GR7p4X7CXzE"
+                data-poster="https://i.ytimg.com/vi/GR7p4X7CXzE/maxresdefault.jpg"
+                data-sec="3580" data-title="War and Grandchildren" data-kind="Podcast"
+                data-role="Edit" data-year="2025"
+                data-note="Війна і онуки. Діалоги за межею емпатії">
+          <span class="clip__n">War and Grandchildren</span><span class="clip__d">59:40</span>
         </button>
         <button class="clip" data-video="assets/work/05.mp4" data-poster="assets/work/05.jpg"
                 data-sec="65" data-title="Form / Function" data-kind="Product launch" data-role="Edit · Color" data-year="2024">
@@ -151,7 +167,67 @@
         </button>
       </div>
 
-      <p class="tl__foot"><span>6 clips</span><span>Total runtime 37:56</span><span>Full list on request</span></p>
+      <p class="tl__foot"><span>6 clips</span><span>Total runtime 2:05:57</span><span>Full list on request</span></p>
+    </div>
+  </div>
+
+  <div class="reels">
+    <div class="reels__head">
+      <h3>Vertical</h3>
+      <p>9:16 cuts for Reels, Shorts and Stories. They load in the same monitor.</p>
+    </div>
+
+    <div class="reels__grid" id="reels">
+
+      <button class="reel" data-ar="9/16" data-sec="33" data-yt="2nUpffePN54"
+              data-poster="https://i.ytimg.com/vi/2nUpffePN54/oardefault.jpg"
+              data-title="FAB vs KAB" data-kind="Explainer" data-role="Edit" data-year="2025"
+              data-note="Відмінності ФАБ та КАБ">
+        <span class="reel__frame">
+          <img src="https://i.ytimg.com/vi/2nUpffePN54/oardefault.jpg" alt="">
+          <i class="reel__i">01</i>
+          <i class="reel__len">0:33</i>
+        </span>
+        <span class="reel__meta"><b>FAB vs KAB</b><em>Explainer</em></span>
+      </button>
+
+      <button class="reel" data-ar="9/16" data-sec="83" data-yt="B0pPF1VHlyI"
+              data-poster="https://i.ytimg.com/vi/B0pPF1VHlyI/oardefault.jpg"
+              data-title="Western Components" data-kind="Explainer" data-role="Edit" data-year="2025"
+              data-note="Західні компоненти російских ракет">
+        <span class="reel__frame">
+          <img src="https://i.ytimg.com/vi/B0pPF1VHlyI/oardefault.jpg" alt="">
+          <i class="reel__i">02</i>
+          <i class="reel__len">1:23</i>
+        </span>
+        <span class="reel__meta"><b>Western Components</b><em>Explainer</em></span>
+      </button>
+
+      <button class="reel" data-ar="9/16" data-sec="32" data-yt="Nl9c1oydGfY"
+              data-poster="https://i.ytimg.com/vi/Nl9c1oydGfY/oardefault.jpg"
+              data-title="Asking for Help" data-kind="Social" data-role="Edit" data-year="2025"
+              data-note="Просити про допомогу">
+        <span class="reel__frame">
+          <img src="https://i.ytimg.com/vi/Nl9c1oydGfY/oardefault.jpg" alt="">
+          <i class="reel__i">03</i>
+          <i class="reel__len">0:32</i>
+        </span>
+        <span class="reel__meta"><b>Asking for Help</b><em>Social</em></span>
+      </button>
+
+      <button class="reel" data-ar="9/16" data-sec="93" data-yt="wOy5EzID1no"
+              data-poster="https://i.ytimg.com/vi/wOy5EzID1no/frame0.jpg"
+              data-title="3D Ecom Spot" data-kind="AI ad"
+              data-role="Generation · VO · Edit · Sound" data-year="2025"
+              data-client="E-commerce brand — undisclosed">
+        <span class="reel__frame">
+          <img src="https://i.ytimg.com/vi/wOy5EzID1no/frame0.jpg" alt="">
+          <i class="reel__i">04</i>
+          <i class="reel__len">1:33</i>
+        </span>
+        <span class="reel__meta"><b>3D Ecom Spot</b><em>AI ad</em></span>
+      </button>
+
     </div>
   </div>
 </section>
@@ -226,6 +302,6 @@
   </div>
 </div>
 
-<script src="js/main.js?v=17"></script>
+<script src="js/main.js?v=26"></script>
 </body>
 </html>
