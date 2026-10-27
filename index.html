@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Illia Movchan — Video Editor</title>
+<meta name="description" content="Video editor. Commercials, music videos, documentary and social cuts — from raw footage to final master.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0a0a'/%3E%3Crect x='6' y='9' width='20' height='14' fill='none' stroke='%23ffc400' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=17">
+</head>
+<body>
+
+<a class="skip" href="#work">Skip to work</a>
+
+<!-- ══════════ SEQUENCE RAIL ══════════ -->
+<aside class="rail" id="rail" aria-hidden="true">
+  <span class="rail__cap">SEQ</span>
+  <div class="rail__track">
+    <i class="rail__head" id="railHead"></i>
+    <button class="rail__mark" data-go="top"     style="top:0%">Start</button>
+    <button class="rail__mark" data-go="work"    style="top:30%">Work</button>
+    <button class="rail__mark" data-go="about"   style="top:64%">About</button>
+    <button class="rail__mark" data-go="contact" style="top:90%">Contact</button>
+  </div>
+  <span class="rail__cap rail__cap--b">01</span>
+</aside>
+
+<!-- ══════════ HEADER ══════════ -->
+<header class="bar" id="bar">
+  <a class="bar__id" href="#top"><b>ILLIA MOVCHAN</b><span>VIDEO EDITOR</span></a>
+
+  <div class="bar__tc">
+    <span class="lbl">TC</span>
+    <output id="tc">00:00:00:00</output>
+  </div>
+
+  <nav class="bar__nav">
+    <a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a>
+  </nav>
+
+  <a class="cta" href="#contact">Hire me</a>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+</header>
+
+<div class="drawer" id="drawer">
+  <a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a>
+  <a class="drawer__mail" href="mailto:ill.movchan@gmail.com">ill.movchan@gmail.com</a>
+  <a class="drawer__mail" href="tel:+380730650464">+380 73 065 04 64</a>
+</div>
+
+<main>
+<!-- ══════════ 01 — HERO ══════════ -->
+<section class="hero" id="top">
+  <div class="hero__main">
+    <div class="hero__left">
+      <h1 class="hero__name">
+        <span>Illia</span>
+        <span>Movchan</span>
+      </h1>
+      <p class="hero__claim">I cut commercials, music videos and documentary.
+        Raw footage in, finished master out.</p>
+    </div>
+
+    <dl class="panel">
+      <div><dt>Status</dt><dd class="ok">Free from Jan 2026</dd></div>
+      <div><dt>Base</dt><dd>Odesa, UA — remote</dd></div>
+      <div><dt>Runtime</dt><dd>7 years · 180+ cuts</dd></div>
+      <div class="panel__cut"><dt>Edit</dt><dd>Premiere Pro · DaVinci Resolve</dd></div>
+      <div><dt>Motion</dt><dd>After Effects</dd></div>
+      <div><dt>Color</dt><dd>Log &amp; RAW grading, camera matching</dd></div>
+      <div><dt>Sound</dt><dd>Dialogue cleanup, music edit, loudness</dd></div>
+      <div><dt>Delivery</dt><dd>16:9 · 9:16 · 1:1 — ProRes, H.264</dd></div>
+    </dl>
+  </div>
+
+  <div class="strip" id="strip">
+    <button class="strip__frame" data-f="1"><img src="https://i.ytimg.com/vi/kV2X80Zz8LY/maxresdefault.jpg" alt=""><i>01</i></button>
+    <button class="strip__frame" data-f="2"><img src="assets/work/02.jpg" alt=""><i>02</i></button>
+    <button class="strip__frame" data-f="3"><img src="assets/work/03.jpg" alt=""><i>03</i></button>
+    <button class="strip__frame" data-f="4"><img src="assets/work/04.jpg" alt=""><i>04</i></button>
+    <button class="strip__frame" data-f="5"><img src="assets/work/05.jpg" alt=""><i>05</i></button>
+    <button class="strip__frame strip__reel" data-play="reel">
+      <span class="tri"></span>
+      <b>SHOWREEL</b><em>01:48</em>
+    </button>
+  </div>
+
+  <div class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+</section>
+
+<!-- ══════════ 02 — WORK ══════════ -->
+<section class="work" id="work">
+  <div class="sechead">
+    <h2>Work</h2>
+    <p>Pick a clip from the sequence. It loads in the monitor — press play for sound.</p>
+  </div>
+
+  <div class="suite">
+    <!-- program monitor -->
+    <figure class="mon" id="mon">
+      <div class="mon__screen">
+        <video id="monVideo" playsinline preload="metadata"></video>
+        <img id="monStill" alt="">
+        <div id="monYT" hidden><div id="monYTMount"></div></div>
+        <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+        <span class="mon__burn" id="monBurn">00:00:00:00</span>
+        <button class="mon__play" id="monPlay" aria-label="Play"><span class="tri"></span></button>
+      </div>
+      <figcaption class="mon__meta" id="monMeta">
+        <span class="t">When Music Went to War</span>
+        <span>Documentary</span>
+        <span>Edit</span>
+        <span>2025</span>
+        <span class="d">13:34</span>
+      </figcaption>
+    </figure>
+
+    <!-- timeline -->
+    <div class="tl" id="tl">
+      <div class="tl__ruler" id="ruler"></div>
+
+      <div class="tl__track" id="track">
+        <button class="clip is-on" data-yt="kV2X80Zz8LY"
+                data-poster="https://i.ytimg.com/vi/kV2X80Zz8LY/maxresdefault.jpg"
+                data-sec="814" data-title="When Music Went to War" data-kind="Documentary"
+                data-role="Edit" data-year="2025">
+          <span class="clip__n">When Music Went to War</span><span class="clip__d">13:34</span>
+        </button>
+        <button class="clip" data-video="assets/work/02.mp4" data-poster="assets/work/02.jpg"
+                data-sec="30" data-title="Nova Sport" data-kind="Campaign" data-role="Edit · Motion" data-year="2025">
+          <span class="clip__n">Nova Sport</span><span class="clip__d">0:30</span>
+        </button>
+        <button class="clip" data-video="assets/work/03.mp4" data-poster="assets/work/03.jpg"
+                data-sec="202" data-title="Signal" data-kind="Music video" data-role="Edit" data-year="2024">
+          <span class="clip__n">Signal</span><span class="clip__d">3:22</span>
+        </button>
+        <button class="clip" data-video="assets/work/04.mp4" data-poster="assets/work/04.jpg"
+                data-sec="1120" data-title="Night Shift" data-kind="Documentary" data-role="Edit · Sound" data-year="2024">
+          <span class="clip__n">Night Shift</span><span class="clip__d">18:40</span>
+        </button>
+        <button class="clip" data-video="assets/work/05.mp4" data-poster="assets/work/05.jpg"
+                data-sec="65" data-title="Form / Function" data-kind="Product launch" data-role="Edit · Color" data-year="2024">
+          <span class="clip__n">Form / Function</span><span class="clip__d">1:05</span>
+        </button>
+        <button class="clip" data-video="assets/work/06.mp4" data-poster="assets/work/06.jpg"
+                data-sec="45" data-title="Meridian" data-kind="Social set" data-role="Edit · Subtitles" data-year="2023">
+          <span class="clip__n">Meridian</span><span class="clip__d">0:45</span>
+        </button>
+      </div>
+
+      <p class="tl__foot"><span>6 clips</span><span>Total runtime 37:56</span><span>Full list on request</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 03 — ABOUT ══════════ -->
+<section class="about" id="about">
+  <div class="sechead">
+    <h2>About</h2>
+    <p>Who you are hiring, in plain terms.</p>
+  </div>
+
+  <div class="about__grid">
+    <div class="shot">
+      <img src="assets/portrait.jpg" alt="Portrait">
+      <span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span>
+      <span class="shot__ph">assets/portrait.jpg</span>
+    </div>
+
+    <div class="about__body">
+      <p class="about__lead">Seven years in post. I work on the part that decides<br>
+        whether anyone watches to the end.</p>
+      <p>Structure, pacing and the last ten percent of finish. Started in a small production house
+        doing everything from the shoot to the export, which is why I know what a cut costs on set.
+        Freelance since 2021, mostly with agencies and production teams across Europe.</p>
+      <p>Fixed scope, agreed before anything starts: a first cut, then two rounds of revisions,
+        then masters. The terms are in the table below.</p>
+    </div>
+
+    <dl class="spec">
+      <div><dt>Scope</dt><dd>Agreed before work starts — no surprise invoices</dd></div>
+      <div><dt>Quote</dt><dd>Within 1 working day of the brief</dd></div>
+      <div><dt>Revisions</dt><dd>Two rounds included</dd></div>
+      <div><dt>Review</dt><dd>Frame.io links with timecode comments</dd></div>
+      <div><dt>Turnaround</dt><dd>Short-form in 48 hours</dd></div>
+      <div><dt>Rate</dt><dd>Day rate or fixed project price</dd></div>
+      <div><dt>Languages</dt><dd>English · Ukrainian</dd></div>
+      <div><dt>Hours</dt><dd>EET — overlap with CET and UK</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ══════════ 04 — CONTACT ══════════ -->
+<section class="contact" id="contact">
+  <h2 class="contact__h">GOT<br>FOOTAGE?</h2>
+
+  <div class="contact__side">
+    <p>Send the material, the deadline and a reference. You get a quote within one working day — no
+      call needed unless you want one.</p>
+    <a class="contact__mail" href="mailto:ill.movchan@gmail.com">ill.movchan@gmail.com</a>
+    <a class="contact__phone" href="tel:+380730650464">+380 73 065 04 64</a>
+    <div class="contact__links">
+      <a href="mailto:ill.movchan@gmail.com" class="cta cta--big">Send a brief</a>
+      <a href="https://t.me/illia_movchan" target="_blank" rel="noopener">Telegram</a>
+      <a href="https://www.linkedin.com/in/illia-movchan-594053221/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+
+  <div class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+  <footer class="foot">
+    <span>© 2026 Illia Movchan</span><span>Odesa, UA</span><span>Video editor</span>
+  </footer>
+</section>
+</main>
+
+<!-- ══════════ FULLSCREEN PLAYER ══════════ -->
+<div class="lb" id="lb" aria-hidden="true" role="dialog" aria-label="Video player">
+  <button class="lb__x" id="lbClose">CLOSE ✕</button>
+  <div class="lb__stage">
+    <video id="lbVideo" controls playsinline></video>
+    <p class="lb__cap" id="lbCap"></p>
+  </div>
+</div>
+
+<script src="js/main.js?v=17"></script>
+</body>
+</html>
