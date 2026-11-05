@@ -154,9 +154,10 @@
     });
   };
 
-  // kind and role are the only inspector fields that change with the site language
+  // title, kind and role are the only inspector fields that change with the site language
   const fillLang = (d) => {
     const uk = document.documentElement.lang === 'uk';
+    insp.title.textContent = (uk && d.titleUk) || d.title;
     insp.kind.textContent = (uk && d.kindUk) || d.kind;
     insp.role.textContent = (uk && d.roleUk) || d.role;
   };
@@ -193,7 +194,6 @@
     screen.style.setProperty('--ar', aw + '/' + ah);
     screen.style.setProperty('--arn', (aw / ah).toFixed(4));
 
-    insp.title.textContent = d.title;
     fillLang(d);
     insp.year.textContent  = d.year;
     insp.len.textContent   = mmss(+d.sec);
