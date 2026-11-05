@@ -9,28 +9,28 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=47">
+<link rel="stylesheet" href="css/style.css?v=48">
 </head>
 <body>
 
-<a class="skip" href="#work">Skip to work</a>
+<a class="skip" href="#work" data-uk="До робіт">Skip to work</a>
 
 <!-- ══════════ SEQUENCE RAIL ══════════ -->
 <aside class="rail" id="rail" aria-hidden="true">
   <span class="rail__cap">SEQ</span>
   <div class="rail__track">
     <i class="rail__head" id="railHead"></i>
-    <button class="rail__mark" data-go="top"     style="top:0%">Start</button>
-    <button class="rail__mark" data-go="work"    style="top:30%">Work</button>
-    <button class="rail__mark" data-go="about"   style="top:64%">About</button>
-    <button class="rail__mark" data-go="contact" style="top:90%">Contact</button>
+    <button class="rail__mark" data-go="top"     style="top:0%" data-uk="Старт">Start</button>
+    <button class="rail__mark" data-go="work"    style="top:30%" data-uk="Роботи">Work</button>
+    <button class="rail__mark" data-go="about"   style="top:64%" data-uk="Про мене">About</button>
+    <button class="rail__mark" data-go="contact" style="top:90%" data-uk="Контакти">Contact</button>
   </div>
   <span class="rail__cap rail__cap--b">01</span>
 </aside>
 
 <!-- ══════════ HEADER ══════════ -->
 <header class="bar" id="bar">
-  <a class="bar__id" href="#top"><b>ILLIA MOVCHAN</b><span>VIDEO EDITOR</span></a>
+  <a class="bar__id" href="#top"><b>ILLIA MOVCHAN</b><span data-uk="ВІДЕОМОНТАЖЕР">VIDEO EDITOR</span></a>
 
   <div class="bar__tc">
     <span class="lbl">TC</span>
@@ -38,15 +38,22 @@
   </div>
 
   <nav class="bar__nav">
-    <a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a>
+    <a href="#work" data-uk="Роботи">Work</a><a href="#about" data-uk="Про мене">About</a><a href="#contact" data-uk="Контакти">Contact</a>
   </nav>
 
-  <a class="cta" href="#contact">Hire me</a>
+  <div class="lang" role="group" aria-label="Language">
+    <button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="uk" aria-pressed="false">UA</button>
+  </div>
+
+  <a class="cta" href="#contact" data-uk="Найняти">Hire me</a>
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
 </header>
 
 <div class="drawer" id="drawer">
-  <a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a>
+  <a href="#work" data-uk="Роботи">Work</a><a href="#about" data-uk="Про мене">About</a><a href="#contact" data-uk="Контакти">Contact</a>
+  <div class="lang lang--drawer" role="group" aria-label="Language">
+    <button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="uk" aria-pressed="false">UA</button>
+  </div>
   <a class="drawer__mail" href="mailto:ill.movchan@gmail.com">ill.movchan@gmail.com</a>
   <a class="drawer__mail" href="tel:+380730650464">+380 73 065 04 64</a>
 </div>
@@ -60,19 +67,19 @@
         <span>Illia</span>
         <span>Movchan</span>
       </h1>
-      <p class="hero__claim">Commercials, YouTube in any format, documentary, verticals of every kind.
+      <p class="hero__claim" data-uk="Реклама, YouTube у будь-якому форматі, документалістика, вертикальні відео на будь-який смак. Сирий матеріал на вході — готовий мастер на виході.">Commercials, YouTube in any format, documentary, verticals of every kind.
         Raw footage in, finished master out.</p>
     </div>
 
     <dl class="panel">
-      <div><dt>Status</dt><dd class="ok">Free from October 2026</dd></div>
-      <div><dt>Base</dt><dd>Odesa, UA — remote</dd></div>
-      <div><dt>Runtime</dt><dd>5 years · 200+ cuts</dd></div>
-      <div class="panel__cut"><dt>Edit</dt><dd>Premiere Pro · DaVinci Resolve</dd></div>
-      <div><dt>Motion</dt><dd>After Effects</dd></div>
-      <div><dt>Color</dt><dd>Log &amp; RAW grading, camera matching</dd></div>
-      <div><dt>Sound</dt><dd>Full pass — design and SFX, cleanup, etc</dd></div>
-      <div><dt>Delivery</dt><dd>16:9 · 9:16 · 4:5 · 1:1 — ProRes, H.264/265, DNxHR</dd></div>
+      <div><dt data-uk="Статус">Status</dt><dd class="ok" data-uk="Вільний із жовтня 2026">Free from October 2026</dd></div>
+      <div><dt data-uk="Локація">Base</dt><dd data-uk="Одеса, Україна — віддалено">Odesa, UA — remote</dd></div>
+      <div><dt data-uk="Досвід">Runtime</dt><dd data-uk="5 років · 200+ монтажів">5 years · 200+ cuts</dd></div>
+      <div class="panel__cut"><dt data-uk="Монтаж">Edit</dt><dd>Premiere Pro · DaVinci Resolve</dd></div>
+      <div><dt data-uk="Моушн">Motion</dt><dd>After Effects</dd></div>
+      <div><dt data-uk="Колір">Color</dt><dd data-uk="Грейдинг Log і RAW, підгонка камер">Log &amp; RAW grading, camera matching</dd></div>
+      <div><dt data-uk="Звук">Sound</dt><dd data-uk="Повний цикл — саунд-дизайн, SFX, очищення тощо">Full pass — design and SFX, cleanup, etc</dd></div>
+      <div><dt data-uk="Видача">Delivery</dt><dd>16:9 · 9:16 · 4:5 · 1:1 — ProRes, H.264/265, DNxHR</dd></div>
     </dl>
   </div>
 
@@ -83,7 +90,7 @@
     <button class="strip__frame" data-f="4"><img src="https://i.ytimg.com/vi/GR7p4X7CXzE/maxresdefault.jpg" alt=""><i>04</i></button>
     <a class="strip__frame strip__reel" href="https://drive.google.com/drive/folders/1FZ-Wh-McHfVmcRjXDF_x4PDq7b_gNIvP?usp=sharing" target="_blank" rel="noopener">
       <span class="tri"></span>
-      <b>MORE WORKS</b><em>Google Drive &#8599;</em>
+      <b data-uk="ЩЕ РОБОТИ">MORE WORKS</b><em>Google Drive &#8599;</em>
     </a>
   </div>
 
@@ -93,8 +100,8 @@
 <!-- ══════════ 02 — WORK ══════════ -->
 <section class="work" id="work">
   <div class="sechead">
-    <h2>Work</h2>
-    <p>Long-form work, laid out as a sequence — each block is as wide as the piece is long.</p>
+    <h2 data-uk="Роботи">Work</h2>
+    <p data-uk="Довгі формати, викладені як секвенція — ширина блоку відповідає тривалості.">Long-form work, laid out as a sequence — each block is as wide as the piece is long.</p>
   </div>
 
   <div class="suite">
@@ -111,17 +118,17 @@
     </figure>
 
     <aside class="insp">
-      <p class="insp__cap">In monitor</p>
+      <p class="insp__cap" data-uk="У моніторі">In monitor</p>
       <h3 class="insp__title" id="inspTitle">When Music Went to War</h3>
       <dl class="insp__rows">
-        <div><dt>Type</dt><dd id="inspKind">Documentary</dd></div>
-        <div><dt>Role</dt><dd id="inspRole">Edit</dd></div>
-        <div id="inspClientRow" hidden><dt>Client</dt><dd id="inspClient"></dd></div>
-        <div><dt>Year</dt><dd id="inspYear">2025</dd></div>
-        <div><dt>Runtime</dt><dd id="inspLen">13:34</dd></div>
-        <div><dt>Frame</dt><dd id="inspAr">16:9</dd></div>
+        <div><dt data-uk="Тип">Type</dt><dd id="inspKind">Documentary</dd></div>
+        <div><dt data-uk="Роль">Role</dt><dd id="inspRole">Edit, color, sound — everything</dd></div>
+        <div id="inspClientRow" hidden><dt data-uk="Клієнт">Client</dt><dd id="inspClient"></dd></div>
+        <div><dt data-uk="Рік">Year</dt><dd id="inspYear">2026</dd></div>
+        <div><dt data-uk="Тривалість">Runtime</dt><dd id="inspLen">13:34</dd></div>
+        <div><dt data-uk="Кадр">Frame</dt><dd id="inspAr">16:9</dd></div>
       </dl>
-      <a class="insp__link" id="inspLink" href="https://youtu.be/kV2X80Zz8LY" target="_blank" rel="noopener">Open on YouTube ↗</a>
+      <a class="insp__link" id="inspLink" href="https://youtu.be/kV2X80Zz8LY" target="_blank" rel="noopener" data-uk="Відкрити на YouTube ↗">Open on YouTube ↗</a>
     </aside>
 
     <!-- timeline -->
@@ -131,38 +138,42 @@
       <div class="tl__track" id="track">
         <button class="clip is-on" data-yt="kV2X80Zz8LY"
                 data-poster="https://i.ytimg.com/vi/kV2X80Zz8LY/maxresdefault.jpg?v=2"
-                data-sec="814" data-title="When Music Went to War" data-kind="Documentary"
-                data-role="Edit" data-year="2025">
+                data-sec="814" data-title="When Music Went to War" data-kind="Documentary" data-kind-uk="Документальний фільм"
+                data-role="Edit, color, sound — everything" data-role-uk="Монтаж, колір, звук — усе" data-year="2026">
           <span class="clip__n">When Music Went to War</span><span class="clip__d">13:34</span>
         </button>
         <button class="clip" data-yt="qlNAm4sDkXM"
                 data-poster="https://i.ytimg.com/vi/qlNAm4sDkXM/maxresdefault.jpg"
-                data-sec="392" data-title="Music Under Fire" data-kind="Documentary"
-                data-role="Edit" data-year="2025">
+                data-sec="392" data-title="Music Under Fire" data-kind="Documentary" data-kind-uk="Документальний фільм"
+                data-role="Edit, color, sound — everything" data-role-uk="Монтаж, колір, звук — усе" data-year="2026">
           <span class="clip__n">Music Under Fire</span><span class="clip__d">6:32</span>
         </button>
         <button class="clip" data-yt="QOdl4KEcaCY"
                 data-poster="https://i.ytimg.com/vi/QOdl4KEcaCY/maxresdefault.jpg"
-                data-sec="2661" data-title="Teneta Defence" data-kind="Interview"
-                data-role="Edit" data-year="2025">
+                data-sec="2661" data-title="Teneta Defence" data-kind="Interview" data-kind-uk="Інтерв’ю"
+                data-role="Edit, color, sound — everything" data-role-uk="Монтаж, колір, звук — усе" data-year="2025">
           <span class="clip__n">Teneta Defence</span><span class="clip__d">44:21</span>
         </button>
         <button class="clip" data-yt="GR7p4X7CXzE"
                 data-poster="https://i.ytimg.com/vi/GR7p4X7CXzE/maxresdefault.jpg"
-                data-sec="3580" data-title="War and Grandchildren" data-kind="Podcast"
-                data-role="Edit" data-year="2025">
+                data-sec="3580" data-title="War and Grandchildren" data-kind="Podcast" data-kind-uk="Подкаст"
+                data-role="Edit, color, sound — everything" data-role-uk="Монтаж, колір, звук — усе" data-year="2024">
           <span class="clip__n">War and Grandchildren</span><span class="clip__d">59:40</span>
         </button>
       </div>
 
-      <p class="tl__foot"><span>4 clips</span><span>Total runtime 2:04:07</span><span>Full list on request</span></p>
+      <p class="tl__foot"><span data-uk="4 ролики">4 clips</span><span data-uk="Загальна тривалість 2:04:07">Total runtime 2:04:07</span><span data-uk="Повний список за запитом">Full list on request</span></p>
     </div>
   </div>
 
   <div class="reels">
     <div class="reels__head">
-      <h3>Vertical</h3>
-      <p>9:16 cuts for Reels, Shorts and Stories.</p>
+      <h3 data-uk="Вертикальні">Vertical</h3>
+      <p data-uk="Вертикальні 9:16 для Reels, Shorts і Stories.">9:16 cuts for Reels, Shorts and Stories.</p>
+      <div class="reels__nav">
+        <button type="button" id="reelPrev" aria-label="Previous">&#8592;</button>
+        <button type="button" id="reelNext" aria-label="Next">&#8594;</button>
+      </div>
     </div>
 
     <div class="reels__grid" id="reels">
@@ -178,7 +189,7 @@
         </div>
         <div class="reel__meta">
           <b>Western Components</b>
-          <em>Explainer</em>
+          <em data-uk="Експлейнер">Explainer</em>
         </div>
       </article>
 
@@ -193,7 +204,7 @@
         </div>
         <div class="reel__meta">
           <b>The Right Flag</b>
-          <em>Explainer</em>
+          <em data-uk="Експлейнер">Explainer</em>
         </div>
       </article>
 
@@ -208,7 +219,7 @@
         </div>
         <div class="reel__meta">
           <b>Asking for Help</b>
-          <em>Social</em>
+          <em data-uk="Соцмережі">Social</em>
         </div>
       </article>
 
@@ -223,7 +234,47 @@
         </div>
         <div class="reel__meta">
           <b>3D Ecom Spot</b>
-          <em>AI ad · Client work</em>
+          <em data-uk="AI-реклама · Робота для клієнта">AI ad · Client work</em>
+        </div>
+      </article>
+
+      <article class="reel reel--empty">
+        <div class="reel__frame">
+          <i class="reel__i">05</i>
+        </div>
+        <div class="reel__meta">
+          <b data-uk="Незабаром">Coming soon</b>
+          <em data-uk="Вертикальне відео">Vertical cut</em>
+        </div>
+      </article>
+
+      <article class="reel reel--empty">
+        <div class="reel__frame">
+          <i class="reel__i">06</i>
+        </div>
+        <div class="reel__meta">
+          <b data-uk="Незабаром">Coming soon</b>
+          <em data-uk="Вертикальне відео">Vertical cut</em>
+        </div>
+      </article>
+
+      <article class="reel reel--empty">
+        <div class="reel__frame">
+          <i class="reel__i">07</i>
+        </div>
+        <div class="reel__meta">
+          <b data-uk="Незабаром">Coming soon</b>
+          <em data-uk="Вертикальне відео">Vertical cut</em>
+        </div>
+      </article>
+
+      <article class="reel reel--empty">
+        <div class="reel__frame">
+          <i class="reel__i">08</i>
+        </div>
+        <div class="reel__meta">
+          <b data-uk="Незабаром">Coming soon</b>
+          <em data-uk="Вертикальне відео">Vertical cut</em>
         </div>
       </article>
 
@@ -234,8 +285,8 @@
 <!-- ══════════ 03 — ABOUT ══════════ -->
 <section class="about" id="about">
   <div class="sechead">
-    <h2>About</h2>
-    <p>Who you are hiring, in plain terms.</p>
+    <h2 data-uk="Про мене">About</h2>
+    <p data-uk="Хто вам потрібен, простими словами.">Who you are hiring, in plain terms.</p>
   </div>
 
   <div class="about__grid">
@@ -248,39 +299,39 @@
     -->
 
     <div class="about__body">
-      <p class="about__lead">Five years in post. I work on the part that decides<br>
+      <p class="about__lead" data-uk="П’ять років у постпродакшені. Я працюю над тим, що вирішує,<br>чи додивляться до кінця.">Five years in post. I work on the part that decides<br>
         whether anyone watches to the end.</p>
-      <p>Structure, pacing and the last ten percent of finish. Started in a small production house
+      <p data-uk="Структура, темп і останні десять відсотків фінальної обробки. Починав у невеликому продакшені, де робив усе — від зйомки до експорту, тому знаю, чого коштує монтажний стик на майданчику. Тепер фріланс, здебільшого з агенціями та продакшн-командами по всій Європі.">Structure, pacing and the last ten percent of finish. Started in a small production house
         doing everything from the shoot to the export, which is why I know what a cut costs on set.
         Freelance now, mostly with agencies and production teams across Europe.</p>
-      <p>Fixed scope, agreed before anything starts: a first cut, then revisions until it lands,
+      <p data-uk="Фіксований обсяг, погоджений до початку: перша версія, далі правки, доки не влучить, потім мастери. Умови — в таблиці нижче.">Fixed scope, agreed before anything starts: a first cut, then revisions until it lands,
         then masters. The terms are in the table below.</p>
     </div>
 
     <dl class="spec">
-      <div><dt>Scope</dt><dd>Agreed before work starts — no surprise invoices</dd></div>
-      <div><dt>Price</dt><dd>A fixed number, sent within 1 working day of your brief</dd></div>
-      <div><dt>Revisions</dt><dd>Until the cut lands — no round limit</dd></div>
-      <div><dt>Review</dt><dd>Frame.io with timecode comments, or whatever you already use</dd></div>
-      <div><dt>Turnaround</dt><dd>Short-form in 48 hours</dd></div>
-      <div><dt>Rate</dt><dd>Day rate or fixed project price</dd></div>
-      <div><dt>Languages</dt><dd>English · Ukrainian</dd></div>
-      <div><dt>Hours</dt><dd>EET — overlap with CET and UK</dd></div>
+      <div><dt data-uk="Обсяг">Scope</dt><dd data-uk="Погоджується до початку роботи — жодних несподіваних рахунків">Agreed before work starts — no surprise invoices</dd></div>
+      <div><dt data-uk="Ціна">Price</dt><dd data-uk="Фіксована сума, надсилаю протягом 1 робочого дня після брифу">A fixed number, sent within 1 working day of your brief</dd></div>
+      <div><dt data-uk="Правки">Revisions</dt><dd data-uk="Доки монтаж не влучить — без ліміту раундів">Until the cut lands — no round limit</dd></div>
+      <div><dt data-uk="Рев’ю">Review</dt><dd data-uk="Frame.io з коментарями за таймкодом або будь-що, чим ви вже користуєтесь">Frame.io with timecode comments, or whatever you already use</dd></div>
+      <div><dt data-uk="Терміни">Turnaround</dt><dd data-uk="Короткі формати за 48 годин">Short-form in 48 hours</dd></div>
+      <div><dt data-uk="Ставка">Rate</dt><dd data-uk="Денна ставка або фіксована ціна проєкту">Day rate or fixed project price</dd></div>
+      <div><dt data-uk="Мови">Languages</dt><dd data-uk="Англійська · Українська">English · Ukrainian</dd></div>
+      <div><dt data-uk="Години">Hours</dt><dd data-uk="EET — перетин із CET і Великою Британією">EET — overlap with CET and UK</dd></div>
     </dl>
   </div>
 </section>
 
 <!-- ══════════ 04 — CONTACT ══════════ -->
 <section class="contact" id="contact">
-  <h2 class="contact__h">GOT<br>FOOTAGE?</h2>
+  <h2 class="contact__h" data-uk="Є<br>МАТЕРІАЛ?">GOT<br>FOOTAGE?</h2>
 
   <div class="contact__side">
-    <p>Send the material, the deadline and a reference. You get a quote within one working day — no
+    <p data-uk="Надішліть матеріал, дедлайн і референс. Кошторис отримаєте протягом одного робочого дня — дзвінок не потрібен, якщо самі не захочете.">Send the material, the deadline and a reference. You get a quote within one working day — no
       call needed unless you want one.</p>
     <a class="contact__mail" href="mailto:ill.movchan@gmail.com">ill.movchan@gmail.com</a>
     <a class="contact__phone" href="tel:+380730650464">+380 73 065 04 64</a>
     <div class="contact__links">
-      <a href="mailto:ill.movchan@gmail.com" class="cta cta--big">Send a brief</a>
+      <a href="mailto:ill.movchan@gmail.com" class="cta cta--big" data-uk="Надіслати бриф">Send a brief</a>
       <a href="https://t.me/illia_movchan" target="_blank" rel="noopener">Telegram</a>
       <a href="https://www.linkedin.com/in/illia-movchan-594053221/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
@@ -289,7 +340,7 @@
   <div class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
 
   <footer class="foot">
-    <span>© 2026 Illia Movchan</span><span>Odesa, UA</span><span>Video editor</span>
+    <span>© 2026 Illia Movchan</span><span data-uk="Одеса, Україна">Odesa, UA</span><span data-uk="Відеомонтажер">Video editor</span>
   </footer>
 </section>
 </main>
@@ -303,6 +354,7 @@
   </div>
 </div>
 
-<script src="js/main.js?v=47"></script>
+<script src="js/lang.js?v=48"></script>
+<script src="js/main.js?v=48"></script>
 </body>
 </html>

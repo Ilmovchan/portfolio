@@ -154,6 +154,13 @@
     });
   };
 
+  // kind and role are the only inspector fields that change with the site language
+  const fillLang = (d) => {
+    const uk = document.documentElement.lang === 'uk';
+    insp.kind.textContent = (uk && d.kindUk) || d.kind;
+    insp.role.textContent = (uk && d.roleUk) || d.role;
+  };
+
   const load = (clip, autoplay) => {
     clips.forEach(c => c.classList.toggle('is-on', c === clip));
     current = clip;
@@ -187,8 +194,7 @@
     screen.style.setProperty('--arn', (aw / ah).toFixed(4));
 
     insp.title.textContent = d.title;
-    insp.kind.textContent  = d.kind;
-    insp.role.textContent  = d.role;
+    fillLang(d);
     insp.year.textContent  = d.year;
     insp.len.textContent   = mmss(+d.sec);
     insp.ar.textContent    = ar.replace('/', ':');
@@ -213,6 +219,7 @@
   clips.forEach(c => c.addEventListener('click', () => load(c, false)));
   $('#monPlay').addEventListener('click', play);
   load(clips[0], false);
+  addEventListener('langchange', () => { if (current) fillLang(current.dataset); });
 
   /* ── vertical cuts play inside their own tile ─────── */
   const reelPlayers = new Map();
@@ -254,6 +261,20 @@
       reelPlayers.set(reel, player);
     });
   });
+
+  /* slider: arrows page through the row, four tiles at a time on desktop */
+  const reelRow = $('#reels'), reelPrev = $('#reelPrev'), reelNext = $('#reelNext');
+  const reelEdges = () => {
+    const max = reelRow.scrollWidth - reelRow.clientWidth - 2;
+    reelPrev.disabled = reelRow.scrollLeft <= 2;
+    reelNext.disabled = reelRow.scrollLeft >= max;
+  };
+  const reelPage = dir => reelRow.scrollBy({ left: dir * reelRow.clientWidth, behavior: 'smooth' });
+  reelPrev.addEventListener('click', () => reelPage(-1));
+  reelNext.addEventListener('click', () => reelPage(1));
+  reelRow.addEventListener('scroll', reelEdges, { passive: true });
+  addEventListener('resize', reelEdges);
+  reelEdges();
 
   /* hero contact strip → load that clip in the monitor */
   $$('.strip__frame[data-f]').forEach(f => f.addEventListener('click', () => {
