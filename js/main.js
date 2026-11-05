@@ -264,12 +264,17 @@
 
   /* slider: arrows page through the row, four tiles at a time on desktop */
   const reelRow = $('#reels'), reelPrev = $('#reelPrev'), reelNext = $('#reelNext');
+  const reelCount = $('#reelCount');
   const reelEdges = () => {
+    const tiles = $$('.reel', reelRow), w = tiles[0].offsetWidth;
+    const first = Math.round(reelRow.scrollLeft / w), vis = Math.max(1, Math.floor(reelRow.clientWidth / w));
+    const p = n => String(n).padStart(2, '0');
+    reelCount.textContent = `${p(first + 1)}–${p(Math.min(first + vis, tiles.length))} / ${p(tiles.length)}`;
     const max = reelRow.scrollWidth - reelRow.clientWidth - 2;
     reelPrev.disabled = reelRow.scrollLeft <= 2;
     reelNext.disabled = reelRow.scrollLeft >= max;
   };
-  const reelPage = dir => reelRow.scrollBy({ left: dir * reelRow.clientWidth, behavior: 'smooth' });
+  const reelPage = dir => reelRow.scrollBy({ left: dir * $('.reel', reelRow).offsetWidth * 4, behavior: 'smooth' });
   reelPrev.addEventListener('click', () => reelPage(-1));
   reelNext.addEventListener('click', () => reelPage(1));
   reelRow.addEventListener('scroll', reelEdges, { passive: true });
