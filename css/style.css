@@ -18,7 +18,7 @@
   --pad: clamp(16px,3.2vw,40px);
   --ease: cubic-bezier(.2,.8,.25,1);
 
-  --f-disp: 'Anton', Impact, sans-serif;
+  --f-disp: 'Anton', 'Oswald', Impact, sans-serif;   /* Anton has no Cyrillic — Oswald covers it */
   --f-mono: 'IBM Plex Mono', ui-monospace, monospace;
   --f-body: 'Inter', system-ui, sans-serif;
 }
